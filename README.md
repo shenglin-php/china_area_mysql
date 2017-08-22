@@ -8,28 +8,28 @@
   包含大陆地区的邮政编码和经纬度信息.
   
 ---------------------------------------
-####  cnarea20130831.7z是爬取2013年的数据,截止2013年08月31日.
+####  cnarea20141031.7z是爬取2014年的数据,截止2014年10月31日.
 
-  全部共742456条
+  全部共714472条
   
-  ·大陆数据共742032条,其中
+  ·大陆数据共714048条,其中
   
   省/直辖市 31
   
-  市/州 345
+  市/州 346
   
-  县/区 3136
+  县/区 3139
   
-  乡/镇 43854
+  乡/镇 40053
   
-  村/社区 694666
+  村/社区 670479
   
 
 ### 表结构
 
 ```
 
-CREATE TABLE `cnarea_2013` (
+CREATE TABLE `cnarea_2014` (
   `id` mediumint(7) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` mediumint(7) unsigned NOT NULL DEFAULT '0' COMMENT '父级ID',
   `level` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '层级',
@@ -43,7 +43,7 @@ CREATE TABLE `cnarea_2013` (
   `lng` decimal(12,8) NOT NULL DEFAULT '0.00000000' COMMENT '经度',
   `lat` decimal(12,8) NOT NULL DEFAULT '0.00000000' COMMENT '维度',
   PRIMARY KEY (`id`),
-  KEY `idx_lev` (`level`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=742457 DEFAULT CHARSET=utf8 COMMENT='中国行政地区表';
+  KEY `idx_lev` (`level`,`parent_id`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=714473 DEFAULT CHARSET=utf8 COMMENT='中国行政地区表';
 
 ```
