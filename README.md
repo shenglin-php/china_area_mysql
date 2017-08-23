@@ -43,7 +43,7 @@ CREATE TABLE `cnarea_2016` (
   `merger_name` varchar(50) NOT NULL DEFAULT '' COMMENT '组合名',
   `pinyin` varchar(30) NOT NULL DEFAULT '' COMMENT '拼音',
   `lng` decimal(10,6) NOT NULL DEFAULT '0.000000' COMMENT '经度',
-  `lat` decimal(10,6) NOT NULL DEFAULT '0.000000' COMMENT '维度',
+  `lat` decimal(10,6) NOT NULL DEFAULT '0.000000' COMMENT '纬度',
   PRIMARY KEY (`id`),
   KEY `idx_lev` (`level`,`parent_id`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='中国行政地区表';
