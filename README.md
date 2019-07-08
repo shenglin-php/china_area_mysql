@@ -48,7 +48,8 @@ CREATE TABLE `cnarea_2018` (
   `lng` decimal(10,6) NOT NULL DEFAULT '0.000000' COMMENT '经度',
   `lat` decimal(10,6) NOT NULL DEFAULT '0.000000' COMMENT '纬度',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `idx` (`area_code`) USING BTREE
+  UNIQUE KEY `uk_code` (`area_code`) USING BTREE,
+  KEY `idx_parent_code` (`parent_code`) USING BTREE
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='中国行政地区表';
 
 ```
