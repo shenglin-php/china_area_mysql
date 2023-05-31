@@ -1,4 +1,6 @@
 # china_area_mysql
+注意：cnarea_2023在2020基础上有增减， 增出来的数据merger_name，lng，lat等字段有待完善
+
 ## 中国5级行政区域mysql库
 
   爬取国家统计局官网的行政区域数据,包括省市县镇村5个层级;
@@ -33,11 +35,11 @@
 
 ```mysql
 
-CREATE TABLE `cnarea_2020` (
-  `id` mediumint(7) unsigned NOT NULL AUTO_INCREMENT,
-  `level` tinyint(1) unsigned NOT NULL COMMENT '层级',
-  `parent_code` bigint(14) unsigned NOT NULL DEFAULT '0' COMMENT '父级行政代码',
-  `area_code` bigint(14) unsigned NOT NULL DEFAULT '0' COMMENT '行政代码',
+CREATE TABLE `cnarea_2023` (
+  `id` mediumint unsigned NOT NULL AUTO_INCREMENT,
+  `level` tinyint unsigned NOT NULL COMMENT '层级',
+  `parent_code` bigint unsigned NOT NULL DEFAULT '0' COMMENT '父级行政代码',
+  `area_code` bigint unsigned NOT NULL DEFAULT '0' COMMENT '行政代码',
   `zip_code` mediumint(6) unsigned zerofill NOT NULL DEFAULT '000000' COMMENT '邮政编码',
   `city_code` char(6) NOT NULL DEFAULT '' COMMENT '区号',
   `name` varchar(50) NOT NULL DEFAULT '' COMMENT '名称',
@@ -49,6 +51,9 @@ CREATE TABLE `cnarea_2020` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_code` (`area_code`) USING BTREE,
   KEY `idx_parent_code` (`parent_code`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='中国行政地区表';
+) ENGINE=InnoDB AUTO_INCREMENT=664487 DEFAULT CHARSET=utf8mb3 COMMENT='中国行政地区表';
 
 ```
+
+### 最快的导入方式
+> mysql -h127.0.0.1 -uroot -proot -D your_db  < /Users/owen/Downloads/cnarea_2023.sql
