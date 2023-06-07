@@ -1,6 +1,6 @@
 # china_area_mysql
 
-注意：`cnarea_2023`在2020基础上有增减（暂无港澳台）， 增出来的数据merger_name，lng，lat等字段有待完善，感谢@youwen21的贡献。
+注意：`cnarea_2023`在2020基础上有增减， 增出来的数据merger_name，lng，lat等字段有待完善，感谢@youwen21的贡献。
 
 ## 中国5级行政区域mysql库
 
